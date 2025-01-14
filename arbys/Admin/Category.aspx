@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="arbys.Admin.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="arbys.Admin.Category" %>
 <%@ Import Namespace="arbys" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

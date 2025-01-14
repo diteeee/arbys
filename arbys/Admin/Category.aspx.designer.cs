@@ -11,7 +11,7 @@ namespace arbys.Admin
 {
 
 
-    public partial class WebForm2
+    public partial class Category
     {
 
         /// <summary>

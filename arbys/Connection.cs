@@ -43,7 +43,7 @@ namespace arbys
         public static string GetImageUrl(Object url)
         {
             string url1 = "";
-            if(string.IsNullOrEmpty(url.ToString()) || url == DBNull.Value)
+            if (string.IsNullOrEmpty(url.ToString()) || url == DBNull.Value)
             {
                 url1 = "../Images/No_image.png";
             }
@@ -83,7 +83,8 @@ namespace arbys
             return isUpdated;
         }
 
-        public int cartCount(int userId) {
+        public int cartCount(int userId)
+        {
             con = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Cart_Crud", con);
             cmd.Parameters.AddWithValue("@Action", "SELECT");
@@ -93,6 +94,13 @@ namespace arbys
             DataTable dt = new DataTable();
             sda.Fill(dt);
             return dt.Rows.Count;
+        }
+
+        public static string GetUniqueId()
+        {
+            Guid guid = Guid.NewGuid();
+            String uniqueId = guid.ToString();
+            return uniqueId;
         }
     }
 }

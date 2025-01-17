@@ -7,6 +7,7 @@ using System.Drawing;
 using System.EnterpriseServices.Internal;
 using System.Linq;
 using System.Web;
+using arbys.Admin;
 
 namespace arbys
 {
@@ -22,6 +23,7 @@ namespace arbys
     {
         SqlConnection con;
         SqlCommand cmd;
+        SqlDataAdapter sda;
         public static bool IsValidExtension(string fileName)
         {
             bool isValid = false;
@@ -79,6 +81,18 @@ namespace arbys
                 con.Close();
             }
             return isUpdated;
+        }
+
+        public int cartCount(int userId) {
+            con = new SqlConnection(Connection.GetConnectionString());
+            cmd = new SqlCommand("Cart_Crud", con);
+            cmd.Parameters.AddWithValue("@Action", "SELECT");
+            cmd.Parameters.AddWithValue("@UserId", userId);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt.Rows.Count;
         }
     }
 }

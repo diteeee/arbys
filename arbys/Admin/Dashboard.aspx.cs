@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace arbys.Admin
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Dashboard : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,6 +17,18 @@ namespace arbys.Admin
                 if (Session["admin"] == null)
                 {
                     Response.Redirect("../User/Login.aspx");
+                }
+                else
+                {
+                    DashboardCount dashboard = new DashboardCount();
+                    Session["category"] = dashboard.Count("CATEGORY");
+                    Session["product"] = dashboard.Count("PRODUCT");
+                    Session["order"] = dashboard.Count("ORDER");
+                    Session["delivered"] = dashboard.Count("DELIVERED");
+                    Session["pending"] = dashboard.Count("PENDING");
+                    Session["user"] = dashboard.Count("USER");
+                    Session["soldAmount"] = dashboard.Count("SOLDAMOUNT");
+                    Session["contact"] = dashboard.Count("CONTACT");
                 }
             }
         }

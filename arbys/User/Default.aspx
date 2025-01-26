@@ -2,6 +2,29 @@
 <%@ Import Namespace="arbys" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const token = getQueryParam("token");
+
+        if (token) {
+            localStorage.setItem("authToken", token);
+            console.log("Token saved in localStorage:", token);
+        } else {
+            console.log("No token found in the query string.");
+        }
+
+        const isLogout = getQueryParam("logout");
+        if (isLogout === "true") {
+            localStorage.removeItem("authToken");
+            console.log("Auth token removed from localStorage on logout.");
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -107,16 +130,17 @@
                 <div class="col-md-6">
                     <div class="detail-box">
                         <div class="heading_container">
-                            <h2>We Are Feane
+                            <h2>We Are Arby's
                             </h2>
                         </div>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+                            Arby's is a beloved fast-food chain known for its unique menu centered around deliciously crafted roast beef sandwiches.
+                            With a focus on high-quality meats, Arby's offers a variety of flavorful options,
+                            including their signature Roast Beef Classic, as well as tasty alternatives like turkey, chicken, and even brisket sandwiches.
+                            Whether you're craving a classic sandwich, a hearty wrap, or a tasty side like curly fries, Arby's delivers bold flavors and satisfying portions. With a commitment to providing fast, 
+                            friendly service and fresh ingredients, Arby's continues to be a favorite destination for those seeking a tasty, satisfying meal on the go.
                         </p>
-                        <a href="">Read More
+                        <a href="About.aspx">Read More
                         </a>
                     </div>
                 </div>
@@ -140,12 +164,12 @@
                         <div class="box">
                             <div class="detail-box">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    Many customers appreciate the friendly service and the variety of options, from classic roast beef to more unique choices, which keep them coming back for more.
                                 </p>
-                                <h6>Moana Michell
+                                <h6>Michelle Obama
                                 </h6>
                                 <p>
-                                    magna aliqua
+                                    delicious
                                 </p>
                             </div>
                             <div class="img-box">
@@ -157,12 +181,12 @@
                         <div class="box">
                             <div class="detail-box">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    Our clients rave about the consistently delicious flavors and the quality of the meat in every sandwich at Arby's, making it their go-to spot for a satisfying meal.
                                 </p>
-                                <h6>Mike Hamell
+                                <h6>Mike Tyson
                                 </h6>
                                 <p>
-                                    magna aliqua
+                                    love it
                                 </p>
                             </div>
                             <div class="img-box">

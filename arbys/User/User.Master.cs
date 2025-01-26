@@ -11,6 +11,20 @@ namespace arbys.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                string checkUserSessionScript = @"
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var isLoggedIn = " + (Session["userId"] != null ? "true" : "false") + @";
+                    if (!isLoggedIn) {
+                        localStorage.removeItem('authToken');
+                    }
+                });
+            </script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CheckUserSession", checkUserSessionScript);
+            }
+
             if (!Request.Url.AbsoluteUri.ToString().Contains("Default.aspx"))
             {
                 form1.Attributes.Add("class", "sub_page");
@@ -18,11 +32,7 @@ namespace arbys.User
             else
             {
                 form1.Attributes.Remove("class");
-
-                //load the control
                 Control sliderUserControl = (Control)Page.LoadControl("SliderUserControl.ascx");
-
-                //add the control to the panel
                 pnlSliderUC.Controls.Add(sliderUserControl);
             }
 
@@ -48,9 +58,10 @@ namespace arbys.User
             else
             {
                 Session.Abandon();
-                Response.Redirect("Login.aspx");
+                Response.Redirect("Default.aspx?logout=true");
             }
         }
+
 
         protected void lbRegisterOnProfile_Click(object sender, EventArgs e)
         {

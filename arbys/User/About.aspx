@@ -12,23 +12,26 @@
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="img-box">
-                        <img src="images/about-img.png" alt="">
+                        <img src="../TemplateFiles/images/about-img.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="detail-box">
                         <div class="heading_container">
-                            <h2>We Are Feane
+                            <h2>We Are Arby's
                             </h2>
                         </div>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+                            At Arby’s, we’re passionate about serving up mouthwatering sandwiches made with the highest quality ingredients. From our signature roast beef to our unique selection of deli meats, we’re dedicated to providing our customers with fresh, flavorful meals that hit the spot every time. Our commitment to fast, friendly service and delicious food has earned us a loyal following.
+
+                            Our working hours are as follows:
+                            <ul>
+                                <li>Monday to Friday: 10:00 AM – 10:00 PM</li>
+                                <li>Saturday: 10:00 AM – 11:00 PM</li>
+                                <li>Sunday: 10:00 AM – 9:00 PM</li>
+                            </ul>
+                            We look forward to welcoming you!
                         </p>
-                        <a href="">Read More
-                        </a>
                     </div>
                 </div>
             </div>

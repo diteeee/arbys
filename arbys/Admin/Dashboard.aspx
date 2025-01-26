@@ -1,6 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="arbys.Admin.Dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script>
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    const token = getQueryParam("token");
+
+    if (token) {
+        localStorage.setItem("authToken", token);
+        console.log("Token saved in localStorage:", token);
+    } else {
+        console.log("No token found in the query string.");
+    }
+
+    const isLogout = getQueryParam("logout");
+    if (isLogout === "true") {
+        localStorage.removeItem("authToken");
+        console.log("Auth token removed from localStorage on logout.");
+    }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

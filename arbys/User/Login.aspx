@@ -3,13 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script>
-        //per me zhduk alert message
         window.onload = function () {
             var seconds = 5;
             setTimeout(function () {
                 document.getElementById("<%=lblMsg.ClientID%>").style.display = "none";
             }, seconds * 1000);
         };
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const token = localStorage.getItem("authToken");
+            if (token) {
+                console.log("Token stored in localStorage:", token);
+            } else {
+                console.log("No token found in localStorage.");
+            }
+        });
     </script>
 
 </asp:Content>
